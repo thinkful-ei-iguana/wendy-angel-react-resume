@@ -2,10 +2,52 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function studentList() {
+  // You can create more than one Person, changing its name
   return (
-    <div>
-    <header>Hello My Name is Sally and this is my Resume
+      <div className="studentList">
+          <h3>Student List</h3>
+          <Student name="Rich" />
+          <Student name="Joe" />
+          <Student name="Chris" />
+          <Student name="Tauhida" />
+      </div>
+  );
+}
+
+function StudentList(props) {
+  const studentData = [{
+      id: 10,
+      name: 'Rich'
+  }, {
+      id: 11,
+      name: 'Joe'
+  }, {
+      id: 22,
+      name: 'Chris'
+  }, {
+      id: 26,
+      name: 'Tauhida'
+  }];
+
+  const students = studentData.map(student =>
+      <Student key={student.id} name={student.name} />
+      );
+      return (
+        <div className="studentList">
+          <h3> Student List</h3>
+            {students}
+        </div>
+      );
+};
+
+function App(props) {
+  return (
+    
+    <div className='student-name'>
+      
+    <img src='https://ia.media-imdb.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_UX214_CR0,0,214,317_AL_.jpg' alt="sally student"></img>
+    <header>Hello My Name is {props.name} and this is my Resume
     </header>
       
     <main>
